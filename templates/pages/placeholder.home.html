@@ -3,8 +3,306 @@
 {% block content %}
 
 <div class="page-header">
-  <h1>Sticky footer with fixed navbar</h1>
+  <h1>How Much Internet Speed Do You Need?</h1>
+  <p>This is the Calculator Demo to determine How much Internet Speed you need, based on your usecase.</p>
 </div>
-<p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added within <code>#wrap</code> with <code>padding-top: 60px;</code> on the <code>.container</code>.</p>
+<div>
+  <h3>You need around <span id="speed_needed" class="speed_needed">0</span> Mbps of Internet Speed</h3>
+</div>
+
+<div class="flex-container">
+  <div>
+    <h4>Social Media / Web Browsing</h4>
+    <p><span id="socialMedia_devices">0</span> Devices</p>
+    <button onclick=addSpeed_social_media()>+</button>
+    <button onclick=minusSpeed_social_media()>-</button>
+  </div>
+  
+  <div>
+    <h4>Email / Editing Share Docs</h4>
+    <p><span id="email_devices">0</span> Devices</p>
+    <button onclick=addSpeed_email_editing()>+</button>
+    <button onclick=minusSpeed_email_editing()>-</button>
+  </div>
+  
+  <div>
+    <h4>Video</h4>
+    <p><span id="video_devices">0</span> Devices</p>
+    <button onclick=addSpeed_video()>+</button>
+    <button onclick=minusSpeed_video()>-</button>
+  </div>
+  
+  <div>
+    <h4>Video 4K</h4>
+    <p><span id="video4K_devices">0</span> Devices</p>
+    <button onclick=addSpeed_video4K()>+</button>
+    <button onclick=minusSpeed_video4K()>-</button>
+  </div>
+  
+  <div>
+    <h4>Music Streaming</h4>
+    <p><span id="musicStreaming_devices">0</span> Devices</p>
+    <button onclick=addSpeed_music()>+</button>
+    <button onclick=minusSpeed_music()>-</button>
+  </div>
+  
+  <div>
+    <h4>Online Multiplayer Gaming</h4>
+    <p><span id="onlineGaming_devices">0</span> Devices</p>
+    <button onclick=addSpeed_onlineGames()>+</button>
+    <button onclick=minusSpeed_onlineGames()>-</button>
+  </div>
+  
+  <div>
+    <h4>Group Video Calls</h4>
+    <p><span id="groupVideoCalls_devices">0</span> Devices</p>
+    <button onclick=addSpeed_videoCalls()>+</button>
+    <button onclick=minusSpeed_videoCalls()>-</button>
+  </div>
+  
+  <div>
+    <h4>Security Cams - Doorbel</h4>
+    <p><span id="securityCams_devices">0</span> Devices</p>
+    <button onclick=addSpeed_securityCams()>+</button>
+    <button onclick=minusSpeed_securityCams()>-</button>
+  </div>
+</div>
+<p class="lead">You can see the calculator adjust on different devices</p>
+
+<script>
+  let total_speed_needed = 0
+  let socialMedia_devices = 0
+  let email_devices = 0
+  let video_devices = 0
+  let video4K_devices = 0
+  let musicStreaming_devices = 0
+  let onlineGaming_devices = 0
+  let groupVideoCalls_devices = 0
+  let securityCams_devices = 0
+
+  // Social Media & Browsing
+  function addSpeed_social_media() {
+    total_speed_needed += 5;
+    document.getElementById("speed_needed").innerHTML = total_speed_needed;
+    socialMedia_devices += 1;
+    document.getElementById("socialMedia_devices").innerHTML = socialMedia_devices;
+  }
+
+  function minusSpeed_social_media() {
+    if (socialMedia_devices > 0) {
+        total_speed_needed -= 5;
+        document.getElementById("speed_needed").innerHTML = total_speed_needed;
+        // if (socialMedia_devices > -1) {
+        //   socialMedia_devices -= 1;
+        //   document.getElementById("socialMedia_devices").innerHTML = socialMedia_devices;
+        // }
+        socialMedia_devices -= 1;
+        document.getElementById("socialMedia_devices").innerHTML = socialMedia_devices;
+        if (total_speed_needed < 0) {
+          document.getElementById("speed_needed").innerHTML = 0;
+        }
+    }
+  }
+
+  // Email/Editing Share Docs
+  function addSpeed_email_editing() {
+    total_speed_needed += 1;
+    document.getElementById("speed_needed").innerHTML = total_speed_needed;
+    email_devices += 1;
+    document.getElementById("email_devices").innerHTML = email_devices;
+  }
+
+  function minusSpeed_email_editing() {
+    if (email_devices > 0) {
+        total_speed_needed -= 1;
+        document.getElementById("speed_needed").innerHTML = total_speed_needed;
+        // if (email_devices > -1) {
+        //   email_devices -= 1;
+        //   document.getElementById("email_devices").innerHTML = email_devices;
+        // }
+        email_devices -= 1;
+        document.getElementById("email_devices").innerHTML = email_devices;
+        if (total_speed_needed < 0) {
+          document.getElementById("speed_needed").innerHTML = 0;
+        }
+    }
+  }
+
+  // Streaming Video
+  function addSpeed_video() {
+    total_speed_needed += 10;
+    document.getElementById("speed_needed").innerHTML = total_speed_needed;
+    video_devices += 1;
+    document.getElementById("video_devices").innerHTML = video_devices;
+  }
+
+  function minusSpeed_video() {
+    if (video_devices > 0) {
+        total_speed_needed -= 10;
+        document.getElementById("speed_needed").innerHTML = total_speed_needed;
+        // if (video_devices > -1) {
+        //   video_devices -= 1;
+        //   document.getElementById("video_devices").innerHTML = video_devices;
+        // }
+        video_devices -= 1;
+          document.getElementById("video_devices").innerHTML = video_devices;
+        if (total_speed_needed < 0) {
+          document.getElementById("speed_needed").innerHTML = 0;
+        }
+    }
+  }
+
+  // Streaming Video 4K
+  function addSpeed_video4K() {
+    total_speed_needed += 25;
+    document.getElementById("speed_needed").innerHTML = total_speed_needed;
+    video4K_devices += 1;
+    document.getElementById("video4K_devices").innerHTML = video4K_devices;
+  }
+
+  function minusSpeed_video4K() {
+    if (video4K_devices > 0) {
+        total_speed_needed -= 25;
+        document.getElementById("speed_needed").innerHTML = total_speed_needed;
+        // if (video4K_devices > -1) {
+        //   video4K_devices -= 1;
+        //   document.getElementById("video4K_devices").innerHTML = video4K_devices;
+        // }
+        video4K_devices -= 1;
+          document.getElementById("video4K_devices").innerHTML = video4K_devices;
+        if (total_speed_needed < 0) {
+          document.getElementById("speed_needed").innerHTML = 0;
+        }
+    }
+  }
+
+  // Streaming Music
+  function addSpeed_music() {
+    total_speed_needed += 1;
+    document.getElementById("speed_needed").innerHTML = total_speed_needed;
+    musicStreaming_devices += 1;
+    document.getElementById("musicStreaming_devices").innerHTML = musicStreaming_devices;
+  }
+
+  function minusSpeed_music() {
+    if (musicStreaming_devices > 0) {
+        total_speed_needed -= 1;
+        document.getElementById("speed_needed").innerHTML = total_speed_needed;
+        // if (musicStreaming_devices > -1) {
+        //   musicStreaming_devices -= 1;
+        //   document.getElementById("musicStreaming_devices").innerHTML = musicStreaming_devices;
+        // }
+        musicStreaming_devices -= 1;
+          document.getElementById("musicStreaming_devices").innerHTML = musicStreaming_devices;
+        if (total_speed_needed < 0) {
+          document.getElementById("speed_needed").innerHTML = 0;
+        }
+    }
+  }
+
+  // Online Games
+  function addSpeed_onlineGames() {
+    total_speed_needed += 10;
+    document.getElementById("speed_needed").innerHTML = total_speed_needed;
+    onlineGaming_devices += 1;
+    document.getElementById("onlineGaming_devices").innerHTML = onlineGaming_devices;
+  }
+
+  function minusSpeed_onlineGames() {
+    if (onlineGaming_devices > 0) {
+        total_speed_needed -= 10;
+        document.getElementById("speed_needed").innerHTML = total_speed_needed;
+        // if (onlineGaming_devices > -1) {
+        //   onlineGaming_devices -= 1;
+        //   document.getElementById("onlineGaming_devices").innerHTML = onlineGaming_devices;
+        // }
+        onlineGaming_devices -= 1;
+          document.getElementById("onlineGaming_devices").innerHTML = onlineGaming_devices;
+        if (total_speed_needed < 0) {
+          document.getElementById("speed_needed").innerHTML = 0;
+        }
+    }
+  }
+
+  // Group Video Calls
+  function addSpeed_videoCalls() {
+    total_speed_needed += 4;
+    document.getElementById("speed_needed").innerHTML = total_speed_needed;
+    groupVideoCalls_devices += 1;
+    document.getElementById("groupVideoCalls_devices").innerHTML = groupVideoCalls_devices;
+  }
+
+  function minusSpeed_videoCalls() {
+    if (groupVideoCalls_devices > 0) {
+        total_speed_needed -= 4;
+        document.getElementById("speed_needed").innerHTML = total_speed_needed;
+        // if (groupVideoCalls_devices > -1) {
+        //   groupVideoCalls_devices -= 1;
+        //   document.getElementById("groupVideoCalls_devices").innerHTML = groupVideoCalls_devices;
+        // }
+        groupVideoCalls_devices -= 1;
+          document.getElementById("groupVideoCalls_devices").innerHTML = groupVideoCalls_devices;
+        if (total_speed_needed < 0) {
+          document.getElementById("speed_needed").innerHTML = 0;
+        }
+    }
+  }
+
+  // Security Cams
+  function addSpeed_securityCams() {
+    total_speed_needed += 2;
+    document.getElementById("speed_needed").innerHTML = total_speed_needed;
+    securityCams_devices += 1;
+    document.getElementById("securityCams_devices").innerHTML = securityCams_devices;
+  }
+
+  function minusSpeed_securityCams() {
+    if (securityCams_devices > 0) {
+        total_speed_needed -= 2;
+        document.getElementById("speed_needed").innerHTML = total_speed_needed;
+        // if (securityCams_devices > -1) {
+        //   securityCams_devices -= 1;
+        //   document.getElementById("securityCams_devices").innerHTML = securityCams_devices;
+        // }
+        securityCams_devices -= 1;
+          document.getElementById("securityCams_devices").innerHTML = securityCams_devices;
+        if (total_speed_needed < 0) {
+          document.getElementById("speed_needed").innerHTML = 0;
+        }
+    }
+  }
+
+  const hello_there = "Test Hello there!"
+  alert(hello_there);
+</script>
+
+<style>
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  margin: 10px;
+  padding: 20px;
+  font-size: 30px;
+  width: 250px;
+}
+
+.flex-container > div > h4 {
+  color: #dc496e;
+}
+
+.flex-container > div > p {
+  font-size: 14px;
+}
+
+.speed_needed {
+  font-size: 50px;
+  color: #dc496e;
+}
+</style>
 
 {% endblock %}
